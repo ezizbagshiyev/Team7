@@ -1,0 +1,23 @@
+{
+  "name": "team7",
+  "version": "1.0.0",
+  "description": "financial management website that lets users enter their expenses and provides personalized budgeting recommendations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ezizbagshiyev/Team7.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ezizbagshiyev/Team7/issues"
+  },
+  "homepage": "https://github.com/ezizbagshiyev/Team7#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
