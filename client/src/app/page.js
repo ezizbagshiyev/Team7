@@ -1,103 +1,181 @@
-import Image from "next/image";
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
+      {/* Hero Section */}
+      <section style={{ padding: '80px 16px' }}>
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 style={{
+            fontSize: 'clamp(36px, 5vw, 64px)',
+            fontWeight: '700',
+            color: 'var(--primary)',
+            marginBottom: '24px',
+            lineHeight: '1.1'
+          }}>
+            Take Control of Your Finances
+          </h1>
+          <p style={{
+            fontSize: '20px',
+            color: 'var(--text-secondary)',
+            marginBottom: '32px',
+            maxWidth: '600px',
+            margin: '0 auto 32px auto',
+            lineHeight: '1.6'
+          }}>
+            Track expenses, set budgets, and receive AI-powered recommendations to achieve your financial goals with ease.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Features Section */}
+      <section style={{ 
+        padding: '80px 16px', 
+        background: 'var(--surface)' 
+      }}>
+        <div className="max-w-6xl mx-auto">
+          <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+            <h2 style={{
+              fontSize: 'clamp(28px, 4vw, 48px)',
+              fontWeight: '700',
+              color: 'var(--text-primary)',
+              marginBottom: '16px'
+            }}>
+              Everything you need to manage your money
+            </h2>
+            <p style={{
+              fontSize: '20px',
+              color: 'var(--text-secondary)',
+              maxWidth: '600px',
+              margin: '0 auto'
+            }}>
+              Simple, powerful tools to track spending, create budgets, and make smarter financial decisions.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Smart Analytics */}
+            <div style={{
+              background: 'var(--background)',
+              borderRadius: '12px',
+              padding: '32px',
+              border: '1px solid var(--border)',
+              textAlign: 'center',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+              transition: 'transform 0.2s, box-shadow 0.2s'
+            }}>
+              <div style={{
+                width: '64px',
+                height: '64px',
+                background: 'var(--primary)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 24px auto'
+              }}>
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <h3 style={{
+                fontSize: '24px',
+                fontWeight: '600',
+                color: 'var(--text-primary)',
+                marginBottom: '16px'
+              }}>
+                Smart Analytics
+              </h3>
+              <p style={{
+                color: 'var(--text-secondary)',
+                lineHeight: '1.6'
+              }}>
+                Visualize your spending patterns with beautiful charts and get insights into your financial habits.
+              </p>
+            </div>
+
+            {/* AI Recommendations */}
+            <div style={{
+              background: 'var(--background)',
+              borderRadius: '12px',
+              padding: '32px',
+              border: '1px solid var(--border)',
+              textAlign: 'center',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+              transition: 'transform 0.2s, box-shadow 0.2s'
+            }}>
+              <div style={{
+                width: '64px',
+                height: '64px',
+                background: 'var(--primary)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 24px auto'
+              }}>
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h3 style={{
+                fontSize: '24px',
+                fontWeight: '600',
+                color: 'var(--text-primary)',
+                marginBottom: '16px'
+              }}>
+                AI Recommendations
+              </h3>
+              <p style={{
+                color: 'var(--text-secondary)',
+                lineHeight: '1.6'
+              }}>
+                Get personalized budgeting advice and spending recommendations powered by advanced AI.
+              </p>
+            </div>
+
+            {/* Bank-Level Security */}
+            <div style={{
+              background: 'var(--background)',
+              borderRadius: '12px',
+              padding: '32px',
+              border: '1px solid var(--border)',
+              textAlign: 'center',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+              transition: 'transform 0.2s, box-shadow 0.2s'
+            }}>
+              <div style={{
+                width: '64px',
+                height: '64px',
+                background: 'var(--primary)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 24px auto'
+              }}>
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 style={{
+                fontSize: '24px',
+                fontWeight: '600',
+                color: 'var(--text-primary)',
+                marginBottom: '16px'
+              }}>
+                Bank-Level Security
+              </h3>
+              <p style={{
+                color: 'var(--text-secondary)',
+                lineHeight: '1.6'
+              }}>
+                Your financial data is protected with enterprise-grade security and encryption.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
