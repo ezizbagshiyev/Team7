@@ -1,25 +1,42 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const dotenv = require('dotenv');
+import "dotenv/config";
+import express from "express";
+import connectDB from "./config/connection.js";
+import routes from "./routes/index.js"
+import { fileURLToPath } from "url";
+import path from "path";
+import cookieParser from "cookie-parser";
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+// Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
-mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('MongoDB connected successfully'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+// Routes
+app.use(routes);
 
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/expenses', require('./routes/expenses'));
+// Serve React app in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../front-end/dist')));
+ 
+  app.use((req, res) => {
+  res.sendFile(path.join(__dirname, '../front-end/dist/index.html'));
+});
+}
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Start server
+const startServer = async () => {
+    await connectDB();
+    
+    app.listen(PORT, () => {
+        console.log(`🚀 Server running on port ${PORT}`);
+    });
+};
+
+startServer();
