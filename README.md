@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Personal Finance Website
 
-## Getting Started
+A web-based personal finance management tool that helps users track income, expenses, and bank accounts. The website provides a simple, intuitive dashboard with AI-powered features to make managing finances easier.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+* **User Authentication**:
+
+  * Sign up and log in securely.
+  * Email verification with a verification code.
+
+* **Personalized Dashboard**:
+
+  * Set monthly spending limits.
+  * Connect multiple bank accounts.
+  * View recent transactions.
+  * Visualize monthly expenses with a pie chart.
+
+* **Transaction Management**:
+
+  * Add income or expense transactions with:
+
+    * Amount
+    * Category (dynamic based on income/expense)
+    * Date
+    * Description
+    * Recurring transaction option
+  * Scan receipts to automatically populate transaction fields using Gemini AI API.
+
+* **Future Enhancements**:
+
+  * AI-powered email insights for financial recommendations.
+
+## Technology Stack
+
+* **Frontend**: React / Next.js (or specify your framework)
+* **Backend**: Node.js / Express (or specify your backend)
+* **Database**: MongoDB (or your database)
+* **AI Integration**: Gemini AI API for automatic transaction input
+
+## Usage
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/personal-finance-website.git
+   ```
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+3. Environment Variables
+
+To run this project locally, you need to create a `.env` file in the root directory with the following environment variables:
+
+```env
+# Clerk authentication keys
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=sign-up
+
+# Database connection
+DATABASE_URL=your_database_connection_string
+DIRECT_URL=your_direct_database_url
+
+# AI & external APIs
+ARCJET_KEY=your_arcjet_key
+GEMINI_API_KEY=your_gemini_api_key
+RESEND_API_KEY=your_resend_api_key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Replace the `your_*` placeholders with your actual keys and URLs.
+4. Run the application locally:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+   ```bash
+   npm run dev
+   ```
+5. Open the website in your browser at `http://localhost:3000`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Demo
 
-## Learn More
+* Published website: \[https://team7-dguv.vercel.app/]
+* Local fallback available in case the live site fails.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Contributions are welcome! Please submit a pull request or open an issue to suggest features or improvements.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
+This project is licensed under the MIT License.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
